@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #333;
+}
+
+#container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 30px 0 20px;
+}
+
+#title h1 {
+    font-size: 2.2rem;
+    color: #2b2b2b;
+}
+
+#title-image {
+    width: 50px;
+}
+
+#expenses, #expenses-values {
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0 5px;
+    font-size: 1.2rem;
+}
+
+#income-total, #expense-total, #final-tally {
+    font-weight: bold;
+}
+
+#money {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 40px;
+}
+
+#money-value, #transaction {
+    width: 80%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-top: 25px;
+}
+
+#credited, #debited {
+    width: 130px;
+    height: 45px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s ease;
+}
+
+#credited {
+    background-color: #a7f3d0;
+    color: #065f46;
+}
+
+#debited {
+    background-color: #fecaca;
+    color: #7f1d1d;
+}
+
+#buttons img {
+    width: 24px;
+    height: 24px;
+}
+
+#credited:hover {
+    background-color: #6ee7b7;
+}
+
+#debited:hover {
+    background-color: #f87171;
+}
+
+#values {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    margin-top: 50px;
+    padding: 10px 20px;
+    background-color: #e5e7eb;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+#transaction-history {
+    margin-top: 10px;
+}
+
+.transaction-history-list {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f9fafb;
+    margin-top: 8px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.transaction-history-list li {
+    list-style: none;
+    font-size: 1rem;
+}
+
+.delete-btn {
+    background-color: #facc15;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: #000;
+    transition: 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #eab308;
+}
+:root {
+    --bg-color: #f5f7fa;
+    --text-color: #333;
+    --container-color: #fff;
+    --card-bg: #f9fafb;
+    --label-bg: #e5e7eb;
+    --delete-btn: #facc15;
+    --delete-btn-hover: #eab308;
+}
+
+body.dark {
+    --bg-color: #1e1e2f;
+    --text-color: #f4f4f4;
+    --container-color: #2e2e3f;
+    --card-bg: #3a3a4f;
+    --label-bg: #4b4b5f;
+    --delete-btn: #facc15;
+    --delete-btn-hover: #eab308;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+#container {
+    background-color: var(--container-color);
+}
+
+.transaction-history-list {
+    background-color: var(--card-bg);
+}
+
+#values {
+    background-color: var(--label-bg);
+}
+
+.delete-btn {
+    background-color: var(--delete-btn);
+}
+
+.delete-btn:hover {
+    background-color: var(--delete-btn-hover);
+}
+
+#dark-toggle {
+    margin-left: 20px;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: inherit;
+}
+@media (max-width: 350px) {
+    #expenses, #expenses-values {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    #buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #money-value, #transaction {
+        width: 95%;
+    }
+
+    .transaction-history-list, #values {
+        grid-template-columns: 1fr 1fr;
+        text-align: center;
+    }
+
+    .transaction-history-list li:nth-child(3),
+    .transaction-history-list button {
+        display: none; /* hide debit on smaller screens */
+    }
+}
+
